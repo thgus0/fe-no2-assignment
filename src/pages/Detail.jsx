@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import MOCK_DATA from "../data/mock";
+import styled from "styled-components";
 
 const Detail = () => {
   const { id } = useParams();
@@ -12,15 +13,39 @@ const Detail = () => {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>{pokemon.korean_name}</h1>
+    <Wrapper>
       <img src={pokemon.img_url} alt={pokemon.korean_name} />
+      <Title>{pokemon.korean_name}</Title>
       <p>타입: {pokemon.types.join(", ")}</p>
       <p>{pokemon.description}</p>
-      <button onClick={() => navigate(-1)}>뒤로 가기</button>
-    </div>
+      <BackButton onClick={() => navigate(-1)}>뒤로 가기</BackButton>
+    </Wrapper>
   );
 };
 
 export default Detail;
-  
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 5rem;
+`;
+
+const Title = styled.h2`
+  color: rgb(249, 30, 30);
+`;
+
+const BackButton = styled.button`
+  margin-top: 1rem;
+  background-color: #f0f0f0; /* 연한 회색 배경 */
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    border-color:rgb(48, 92, 252);
+  }
+`;

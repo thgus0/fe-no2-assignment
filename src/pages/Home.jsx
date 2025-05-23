@@ -24,10 +24,14 @@ const Container = styled.div`
     margin-top: 2rem;
     font-size: 1rem;
     border: none;
-    background-color:rgb(255, 20, 20);
+    background-color:rgb(249, 30, 30);
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgb(212, 5, 5);
+    }
   }
 
   img {

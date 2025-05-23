@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
+    font-size: 0.875rem;
   }
 
   a {

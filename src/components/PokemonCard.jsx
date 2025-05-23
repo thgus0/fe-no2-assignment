@@ -11,7 +11,7 @@ const PokemonCard = ({ pokemon, onAdd }) => {
         <img src={img_url} alt={korean_name} />
       </Image>
       <h3>{korean_name}</h3>
-      <p>{types.join(", ")}</p>
+      <NumberText>No. {String(id).padStart(3, "0")}</NumberText>
       <button onClick={() => onAdd(pokemon)}>추가</button>
     </Card>
   );
@@ -20,19 +20,25 @@ const PokemonCard = ({ pokemon, onAdd }) => {
 export default PokemonCard;
 
 const Card = styled.div`
-  border: 1px solid #aaa;
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
+  background-color: white;
+  border: 1px solid rgb(218, 218, 218);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   button {
     margin-top: 0.5rem;
-    padding: 0.4rem 1rem;
-    background-color: #00bcd4;
+    padding: 0.3rem 0.6rem;
+    background-color: rgb(249, 30, 30);
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgb(212, 5, 5);
+    }
   }
 `;
 
@@ -43,4 +49,9 @@ const Image = styled.div`
     width: 96px;
     height: 96px;
   }
+`;
+
+const NumberText = styled.p`
+  font-size: 0.85rem;
+  color: rgb(112, 112, 112);
 `;
