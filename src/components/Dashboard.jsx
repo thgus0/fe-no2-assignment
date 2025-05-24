@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { usePokemon } from "../context/PokemonContext";
 
-const Dashboard = ({ selected, onRemove }) => {
+const Dashboard = () => {
+  const { selected, removePokemon } = usePokemon();
+
   return (
     <Wrapper>
       <Title>나만의 포켓몬</Title>
@@ -10,7 +13,7 @@ const Dashboard = ({ selected, onRemove }) => {
             <img src={p.img_url} alt={p.korean_name} />
             <p>{p.korean_name}</p>
             <NumberText>No. {String(p.id).padStart(3, "0")}</NumberText>
-            <button onClick={() => onRemove(p.id)}>삭제</button>
+            <button onClick={() => removePokemon(p.id)}>삭제</button>
           </Card>
         ))}
       </List>

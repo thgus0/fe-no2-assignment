@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { usePokemon } from "../context/PokemonContext";
 
-const PokemonCard = ({ pokemon, onAdd }) => {
+const PokemonCard = ({ pokemon }) => {
   const navigate = useNavigate();
+  const { addPokemon } = usePokemon();
   const { id, img_url, korean_name, types } = pokemon;
 
   return (
@@ -12,7 +14,7 @@ const PokemonCard = ({ pokemon, onAdd }) => {
       </Image>
       <h3>{korean_name}</h3>
       <NumberText>No. {String(id).padStart(3, "0")}</NumberText>
-      <button onClick={() => onAdd(pokemon)}>추가</button>
+      <button onClick={() => addPokemon(pokemon)}>추가</button>
     </Card>
   );
 };
