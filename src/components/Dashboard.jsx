@@ -36,8 +36,8 @@ const Title = styled.h2`
 `;
 
 const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 1rem;
 `;
 
