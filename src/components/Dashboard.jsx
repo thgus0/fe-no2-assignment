@@ -12,7 +12,7 @@ const Dashboard = () => {
           <Card key={p.id}>
             <img src={p.img_url} alt={p.korean_name} />
             <p>{p.korean_name}</p>
-            <NumberText>No. {String(p.id).padStart(3, "0")}</NumberText>
+            <TypeText>{p.types.join(", ")}</TypeText>
             <button onClick={() => removePokemon(p.id)}>삭제</button>
           </Card>
         ))}
@@ -69,7 +69,7 @@ const Card = styled.div`
   }
 `;
 
-const NumberText = styled.p`
+const TypeText = styled.p`
   font-size: 0.85rem;
   color: rgb(112, 112, 112);
 `;

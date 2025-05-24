@@ -13,7 +13,7 @@ const PokemonCard = ({ pokemon }) => {
         <img src={img_url} alt={korean_name} />
       </Image>
       <h3>{korean_name}</h3>
-      <NumberText>No. {String(id).padStart(3, "0")}</NumberText>
+      <TypeText>{types.join(", ")}</TypeText>
       <button onClick={() => addPokemon(pokemon)}>추가</button>
     </Card>
   );
@@ -53,7 +53,7 @@ const Image = styled.div`
   }
 `;
 
-const NumberText = styled.p`
+const TypeText = styled.p`
   font-size: 0.85rem;
   color: rgb(112, 112, 112);
 `;
